@@ -16,7 +16,6 @@ class UserOut(BaseModel):
    email:EmailStr
    created_at:datetime
    phone_number:Optional[str] = None
-
    class Config:
           #this class is because pydantic only knows how to handle dict not tables ,this class letting know ignore sqlalchemy 
      from_attributes=True
