@@ -16,6 +16,9 @@ def create_user(user:schemas.UserCreate, db:Session=Depends(get_db)):
     db.add(new_user)
     db.commit()
     db.refresh(new_user)
+    print(user)
+    print(type(user))
+
 
     return new_user
 
