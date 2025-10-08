@@ -28,17 +28,7 @@ def test_posts(db:Session = Depends(get_db)):
 
 @router.post("/",status_code=status.HTTP_201_CREATED,response_model=schemas.Post)
 def createposts(post:schemas.PostCreate,db:Session=Depends(get_db),current_user:int=Depends(oauth2.get_current_user)):
-   """ print(post)
-   print(post.title)
-   print(post.content)
-   print(post.published)
-   print(post.rating)
-   print(post.dict())
 
-   post_dict=post.dict()
-   post_dict['id']=randrange(0,100000)
-   my_posts.append(post_dict)"""
-   
    #cursor.execute("""INSERT INTO posts(title,content,published) VALUES (%s,%s,%s) returning * """,(post.title,post.content,post.published))
    #new_post=cursor.fetchone()
    #conn.commit()
