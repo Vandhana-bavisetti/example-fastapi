@@ -16,9 +16,10 @@ class UserOut(BaseModel):
    email:EmailStr
    created_at:datetime
    phone_number:Optional[str] = None
-   class Config:
-          #this class is because pydantic only knows how to handle dict not tables ,this class letting know ignore sqlalchemy 
+
+   class Config:     #this class is because pydantic only knows how to handle dict not tables ,this class letting know ignore sqlalchemy 
      from_attributes=True
+
      
 class Post(PostBase):
     id: int
@@ -35,7 +36,10 @@ class PostOut(PostBase):
 class UserCreate(BaseModel):
    email: EmailStr
    password: str
-
+   password: Optional[str]= None    
+   
+   class Config:
+        orm_mode = True
 
 class UserLogin(BaseModel):
    email:EmailStr

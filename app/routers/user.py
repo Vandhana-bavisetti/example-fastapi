@@ -18,7 +18,7 @@ def create_user(user:schemas.UserCreate, db:Session=Depends(get_db)):
     db.refresh(new_user)
     print(user)
     print(type(user))
-
+    print(type(new_user), new_user)
 
     return new_user
 
