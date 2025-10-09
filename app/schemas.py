@@ -17,8 +17,8 @@ class UserOut(BaseModel):
    created_at:datetime
    phone_number:Optional[str] = None
 
-   class Config:     #this class is because pydantic only knows how to handle dict not tables ,this class letting know ignore sqlalchemy 
-     from_attributes=True
+   class Config:
+    orm_mode = True
 
      
 class Post(PostBase):
@@ -28,7 +28,7 @@ class Post(PostBase):
     owner: UserOut
 
     class Config:     #this class is because pydantic only knows how to handle dict not tables ,this class letting know ignore sqlalchemy 
-     from_attributes=True
+        orm_mode = True
 
 class PostOut(PostBase):
    id:str
@@ -36,7 +36,7 @@ class PostOut(PostBase):
 class UserCreate(BaseModel):
    email: EmailStr
    password: str
-   password: Optional[str]= None    
+   phone_number: Optional[str]= None    
    
    class Config:
         orm_mode = True
